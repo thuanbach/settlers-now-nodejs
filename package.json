@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
-    
   },
   "engines": {
     "node": "10.x"
@@ -19,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/thuanbach/settlers-now-nodejs/issues"
   },
-  "homepage": "https://github.com/thuanbach/settlers-now-nodejs#readme"
+  "homepage": "https://github.com/thuanbach/settlers-now-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
