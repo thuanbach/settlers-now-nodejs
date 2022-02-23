@@ -25,6 +25,13 @@ app.get('/categories', (req, res) => {
   });
 });
 
+app.get('/categories/:id', (req, res) => {
+  pool.query('SELECT * from settle_detail where settle_category_id = ' + req.params.id, (err, result) => {
+    console.log(result.rows[0]);
+    res.send(result.rows[0]);
+  });
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Regina Settlers Now listening on port ${port}`);
 });
