@@ -2,8 +2,24 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+const { Pool, Client } = require('pg');
+
+const pool = new Pool({
+  user: 'ktshrawaodaoes',
+  host: 'ec2-18-215-8-186.compute-1.amazonaws.com',
+  database: 'd4e9mhrbmqv6mr',
+  password: '87bb6e284eb58c429585c5fb2f66a9097c1099a663fb902a6ed24084166729b0',
+  port: 5432,
+  ssl: {
+    rejectUnauthorized: false,
+}
+});
+
+
+app.get('/categories', (req, res) => {
+  pool.query('SELECT * from settle_category ', (err, result) => {
+    res.send(result.rows);
+  });
 });
 
 app.listen(port, () => {
