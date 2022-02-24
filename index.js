@@ -20,7 +20,7 @@ const pool = new Pool({
 
 
 app.get('/categories', (req, res) => {
-  pool.query('SELECT * from settle_category ', (err, result) => {
+  pool.query('SELECT * from settle_category order by id ', (err, result) => {
     res.send(result.rows);
   });
 });
